@@ -19,28 +19,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4kf-AP-h2l">
-                                <rect key="frame" x="0.0" y="27" width="375" height="20"/>
+                                <rect key="frame" x="0.0" y="12" width="375" height="12"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connecting" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4UV-hb-02G">
-                                        <rect key="frame" x="145" y="1.5" width="85" height="17"/>
-                                        <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="14"/>
-                                        <nil key="textColor"/>
+                                        <rect key="frame" x="154.5" y="-1" width="66.5" height="13"/>
+                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="11"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.81828050453987067" green="0.86840187823834203" blue="0.16588022872606051" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.41568627450980389" green="0.10588235294117647" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="4UV-hb-02G" firstAttribute="centerY" secondItem="4kf-AP-h2l" secondAttribute="centerY" id="2Ba-Y4-JJE"/>
+                                    <constraint firstItem="4UV-hb-02G" firstAttribute="centerY" secondItem="4kf-AP-h2l" secondAttribute="centerY" constant="-0.5" id="2Ba-Y4-JJE"/>
                                     <constraint firstItem="4UV-hb-02G" firstAttribute="centerX" secondItem="4kf-AP-h2l" secondAttribute="centerX" id="Fwk-DV-yPw"/>
-                                    <constraint firstAttribute="height" constant="20" id="U3S-nU-gwR"/>
+                                    <constraint firstAttribute="height" constant="12" id="U3S-nU-gwR"/>
                                     <constraint firstAttribute="width" constant="375" id="s5z-8t-75j"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="4kf-AP-h2l" secondAttribute="bottom" constant="620" id="Ft1-ts-KBd"/>
-                            <constraint firstItem="4kf-AP-h2l" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="7" id="Vne-I8-Dt2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="4kf-AP-h2l" secondAttribute="bottom" constant="643" id="Ft1-ts-KBd"/>
+                            <constraint firstItem="4kf-AP-h2l" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="-8" id="Vne-I8-Dt2"/>
                             <constraint firstItem="4kf-AP-h2l" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="g5E-EI-Iad"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

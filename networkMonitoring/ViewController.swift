@@ -22,6 +22,10 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     var gesture = UITapGestureRecognizer()
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,13 +52,13 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
                 print("satisfied")
                 DispatchQueue.main.sync(){
                     self.updateLabel(label: self.statusLabel, text: "Satisfied")
-                    self.updateColor(color: .green, subView: self.subview)
+                    self.updateColor(color: UIColor(displayP3Red: 0, green: 80/255, blue: 0, alpha: 1), subView: self.subview)
                 }
             } else if path.status == .requiresConnection {
                 print("Connection is required")
                 DispatchQueue.main.sync(){
                     self.updateLabel(label: self.statusLabel, text: "Requires Connection")
-                    self.updateColor(color: .yellow, subView: self.subview)
+                    self.updateColor(color: UIColor(displayP3Red: 106/255, green: 27/255, blue: 221/255, alpha: 1) , subView: self.subview)
                 }
             } else {
                 print("Not satisfied")
@@ -88,6 +92,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         subView.layer.backgroundColor = color.cgColor
         UIView.animate(withDuration: 1.5, animations: {
             subView.alpha = 1
+            
         })
         hideSubView(sview: subView)
     }

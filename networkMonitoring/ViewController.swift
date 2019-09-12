@@ -19,7 +19,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     let monitor = NWPathMonitor()
     
     var label : UILabel!
-    
+    var statusAppeard:Bool = true
     var gesture = UITapGestureRecognizer()
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -31,7 +31,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         
         label = UILabel(frame: CGRect(origin: view.bounds.origin, size: CGSize(width: 300, height: 600)))
         label.text = "Starting off..."
-        label.textColor = UIColor.yellow
+        label.textColor = UIColor.white
         label.textAlignment = .center
         label.layer.shadowColor = UIColor.black.cgColor
         label.layer.shadowRadius = 2.0
@@ -48,20 +48,18 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         
         
         monitor.pathUpdateHandler = { path in
+            sleep(1)
             if path.status == .satisfied {
-                print("satisfied")
                 DispatchQueue.main.sync(){
                     self.updateLabel(label: self.statusLabel, text: "Satisfied")
                     self.updateColor(color: UIColor(displayP3Red: 0, green: 80/255, blue: 0, alpha: 1), subView: self.subview)
                 }
             } else if path.status == .requiresConnection {
-                print("Connection is required")
                 DispatchQueue.main.sync(){
                     self.updateLabel(label: self.statusLabel, text: "Requires Connection")
                     self.updateColor(color: UIColor(displayP3Red: 106/255, green: 27/255, blue: 221/255, alpha: 1) , subView: self.subview)
                 }
-            } else {
-                print("Not satisfied")
+            } else  {
                 DispatchQueue.main.sync(){
                     self.updateLabel(label: self.statusLabel, text: "Not Satisfied")
                     self.updateColor(color: .red, subView: self.subview)
@@ -78,28 +76,26 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
 
     func updateLabel(label: UILabel, text: String) {
         
-        DispatchQueue.main.async {
-            label.text = text
-            UIView.animate(withDuration: 0.5, animations: {
-                label.alpha = 1
-            })
-        }
+        label.text = text
+        UIView.animate(withDuration: 0.5, animations: {
+            label.alpha = 1
+        })
     }
-
 
     func updateColor(color: UIColor, subView: UIView){
         
         subView.layer.backgroundColor = color.cgColor
         UIView.animate(withDuration: 1.5, animations: {
             subView.alpha = 1
-            
         })
-        hideSubView(sview: subView)
+        
+        //Make the status bar seen as long as there is no satisfied path
+        _ = monitor.currentPath.status == NWPath.Status.unsatisfied ? ():hideSubView(sview: subView)
     }
     
     
     func hideSubView(sview: UIView) {
-        sleep(3)
+
         UIView.animate(withDuration: 3, animations: {
             sview.alpha = 0
         })
